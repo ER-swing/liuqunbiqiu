@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>六群比丘</title>
+
+<style>
+
+body{
+margin:0;
+font-family: Helvetica, Arial, sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
+
+a{
+color:white;
+text-decoration:none;
+}
+
+/* 首页 */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+flex-direction:column;
+text-align:center;
+}
+
+.hero h1{
+font-size:60px;
+letter-spacing:10px;
+font-weight:300;
+margin:0;
+}
+
+.hero p{
+margin-top:20px;
+opacity:0.6;
+letter-spacing:4px;
+}
+
+/* 哲学文字 */
+
+.philosophy{
+height:60vh;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+letter-spacing:20px;
+opacity:0.7;
+}
+
+/* 作品 */
+
+.work{
+padding:80px 10%;
+}
+
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.grid img{
+width:100%;
+display:block;
+}
+
+/* about */
+
+.about{
+padding:120px 20%;
+line-height:1.8;
+font-size:18px;
+}
+
+/* footer */
+
+footer{
+text-align:center;
+padding:80px;
+opacity:0.5;
+}
+
+@media(max-width:800px){
+
+.hero h1{
+font-size:40px;
+}
+
+.philosophy{
+font-size:28px;
+letter-spacing:10px;
+}
+
+.grid{
+grid-template-columns:1fr;
+}
+
+.about{
+padding:80px 10%;
+}
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- 首页 -->
+
+<section class="hero">
+
+<h1>六群比丘</h1>
+
+<p>STAGE VISUAL COLLECTIVE</p>
+
+</section>
+
+
+<!-- 哲学 -->
+
+<section class="philosophy">
+
+無限分蘖  ·  電光火石
+ 
+</section>
+
+
+<!-- 作品 -->
+
+<section class="work">
+
+<div class="grid">
+
+<img src="images/stage1.jpg">
+
+<img src="images/stage2.jpg">
+
+<img src="images/stage3.jpg">
+
+<img src="images/stage4.jpg">
+
+</div>
+
+</section>
+
+
+<!-- about -->
+
+<section class="about">
+
+六群比丘是一支以灯光设计师为核心的现场美学团队，
+长期服务于中国独立音乐现场。
+
+团队成员来自灯光设计、调音、新媒体视觉等领域，
+通过灯光、声音、影像与装置的结合，
+探索音乐现场更多的表达方式。
+
+我们相信，
+灯光不仅是照亮舞台的工具，
+而是一种空间语言。
+
+</section>
+
+
+<footer>
+
+© 六群比丘
+
+</footer>
+
+
+</body>
+
+</html>
+
+
