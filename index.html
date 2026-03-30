@@ -120,6 +120,37 @@ letter-spacing:0.25em;
 font-size:clamp(12px,2vw,22px);
 text-align:center;
 }
+
+.swipe-hint{
+text-align:center;
+font-size:12px;
+letter-spacing:4px;
+opacity:0.35;
+margin:20px 0 40px 0;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:12px;
+}
+
+.swipe-hint::before,
+.swipe-hint::after{
+content:"";
+width:40px;
+height:1px;
+background:white;
+opacity:0.3;
+}
+
+.swipe-hint span{
+animation:swipefade 2s infinite;
+}
+
+@keyframes swipefade{
+0%{opacity:0.2;}
+50%{opacity:0.7;}
+100%{opacity:0.2;}
+} 
   
 .subtitle{
 display:block;
