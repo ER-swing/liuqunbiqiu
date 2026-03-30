@@ -404,9 +404,24 @@ unity52@foxmail.com<br>
 
 </footer>
 
+<script>
+window.addEventListener("load", function(){
+
+  setTimeout(function(){
+
+    const rows = document.querySelectorAll(".work-row");
+
+    rows.forEach(function(row){
+      row.scrollLeft = 0;
+    });
+
+  },100);
+
+});
+</script>
+
 
 </body>
-
 </html>
 
 
