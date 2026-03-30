@@ -163,15 +163,10 @@ letter-spacing:2px;
 .work-row{
 display:flex;
 overflow-x:auto;
-scroll-snap-type:x proximity;
+scroll-snap-type:x mandatory;
 scroll-behavior:smooth;
 gap:40px;
 -webkit-overflow-scrolling: touch;
-padding-left:4vw;
-}
-
-.work-row::-webkit-scrollbar{
-display:none;
 }
 
 .work-row::-webkit-scrollbar{
@@ -183,7 +178,6 @@ width:90vw;
 max-width:1200px;
 height:auto;
 flex-shrink:0;
-scroll-snap-align:center;
 }
 
 /* about */
@@ -320,7 +314,7 @@ exploring expanded ways for space and narrative to unfold.
 <div class="swipe-hint"><span>SWIPE</span></div>
   
 <h2>
-  ＭUSIC  FESTIVAL<br>
+  MUSIC  FESTIVAL<br>
 <span class="subtitle">音樂節</span>
 </h2>
 <div class="work-row">
@@ -407,17 +401,22 @@ unity52@foxmail.com<br>
 <script>
 window.addEventListener("load", function(){
 
-  setTimeout(function(){
+  const rows = document.querySelectorAll(".work-row");
 
-    const rows = document.querySelectorAll(".work-row");
-
-    rows.forEach(function(row){
-      row.scrollLeft = 0;
-    });
-
-  },100);
+  rows.forEach(function(row){
+    row.scrollLeft = 0;
+  });
 
 });
+
+/* 微信浏览器关闭 scroll-snap */
+if (/MicroMessenger/i.test(navigator.userAgent)) {
+
+  document.querySelectorAll(".work-row").forEach(function(row){
+    row.style.scrollSnapType = "none";
+  });
+
+}
 </script>
 
 
