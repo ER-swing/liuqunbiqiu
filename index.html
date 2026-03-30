@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -10,7 +9,36 @@
 <title>六群比丘</title>
 
 <style>
-/* 哲学文字 */
+
+body{
+margin:0;
+font-family:Helvetica,Arial,sans-serif;
+background:#000;
+color:#fff;
+overflow-x:hidden;
+}
+
+a{
+color:#fff;
+text-decoration:none;
+}
+
+/* 首页 */
+
+.hero{
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+.logo{
+width:320px;
+max-width:90%;
+}
+
+/* 哲学 */
 
 .philosophy{
 height:60vh;
@@ -33,59 +61,12 @@ font-size:18px;
 letter-spacing:8px;
 opacity:0.6;
 }
-body{
-margin:0;
-font-family: Helvetica, Arial, sans-serif;
-background:#000;
-color:#fff;
-overflow-x:hidden;
-}
 
-a{
-color:white;
-text-decoration:none;
-}
-
-/* 首页 */
-
-.hero{
-height:100vh;
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
-text-align:center;
-}
-
-.logo{
-width:320px;
-max-width:90%;
-display:block;
-margin:auto;
-}
-
-.hero h1{
-font-size:60px;
-letter-spacing:10px;
-font-weight:300;
-margin:0;
-}
-
-.hero p{
-margin-top:20px;
-opacity:0.6;
-letter-spacing:4px;
-}
-
-/* 团队理念 */
+/* 理念 */
 
 .concept{
-margin-top:20px;
-display:flex;
-flex-direction:column;
-align-items:center;
-text-align:center;
 padding:0 12%;
+text-align:center;
 }
 
 .concept-cn{
@@ -99,13 +80,8 @@ opacity:0.85;
 margin-top:20px;
 font-size:15px;
 line-height:1.8;
-letter-spacing:1px;
 opacity:0.6;
 }
-
-/* 哲学文字 */
-
-
 
 /* 作品 */
 
@@ -121,12 +97,47 @@ font-size:clamp(12px,2vw,22px);
 text-align:center;
 }
 
+.subtitle{
+display:block;
+font-size:14px;
+opacity:0.5;
+margin-top:6px;
+letter-spacing:2px;
+}
+
+/* 图片滑动 */
+
+.work-row{
+display:flex;
+overflow-x:auto;
+gap:40px;
+scroll-snap-type:x mandatory;
+scroll-behavior:smooth;
+-webkit-overflow-scrolling:touch;
+padding-left:5vw;
+}
+
+.work-row::-webkit-scrollbar{
+display:none;
+}
+
+.work-row img{
+width:90vw;
+max-width:1200px;
+aspect-ratio:16/9;
+object-fit:cover;
+flex-shrink:0;
+scroll-snap-align:start;
+}
+
+/* swipe 提示 */
+
 .swipe-hint{
 text-align:center;
 font-size:12px;
 letter-spacing:4px;
 opacity:0.35;
-margin:20px 0 40px 0;
+margin:20px 0 40px;
 display:flex;
 align-items:center;
 justify-content:center;
@@ -150,34 +161,6 @@ animation:swipefade 2s infinite;
 0%{opacity:0.2;}
 50%{opacity:0.7;}
 100%{opacity:0.2;}
-} 
-  
-.subtitle{
-display:block;
-font-size:14px;
-opacity:0.5;
-margin-top:6px;
-letter-spacing:2px;
-}
-  
-.work-row{
-display:flex;
-overflow-x:auto;
-scroll-snap-type:x mandatory;
-scroll-behavior:smooth;
-gap:40px;
--webkit-overflow-scrolling: touch;
-}
-
-.work-row::-webkit-scrollbar{
-display:none;
-}
-
-.work-row img{
-width:90vw;
-max-width:1200px;
-height:auto;
-flex-shrink:0;
 }
 
 /* about */
@@ -191,8 +174,6 @@ text-align:center;
 
 .contact{
 margin-top:90px;
-text-align:center;
-line-height:1.8;
 opacity:0.7;
 font-size:16px;
 }
@@ -205,19 +186,10 @@ padding:80px;
 opacity:0.5;
 }
 
+/* 手机优化 */
+
 @media(max-width:800px){
 
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-.about{
-padding:80px 10%;
-}
-
-  
 .logo{
 width:240px;
 }
@@ -232,12 +204,6 @@ font-size:14px;
 letter-spacing:4px;
 }
 
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
 .about{
 padding:80px 10%;
 }
@@ -246,25 +212,16 @@ padding:80px 10%;
 
 </style>
 
-
 </head>
 
 
 <body>
 
 
-<!-- 首页 -->
-
 <section class="hero">
-
-<h1>
 <img src="images/logo.png" class="logo">
-</h1>
-
 </section>
 
-
-<!-- 哲学 -->
 
 <section class="philosophy">
 
@@ -273,7 +230,6 @@ padding:80px 10%;
 
 </section>
 
-<!-- 团队理念 -->
 
 <section class="concept">
 
@@ -290,14 +246,11 @@ exploring expanded ways for space and narrative to unfold.
 
 </section>
 
-<!-- 作品 -->
 
 <section class="work">
 
-<h2>
-  CONCERTS<br>
-<span class="subtitle">演唱會</span>
-</h2>
+<h2>CONCERTS<br><span class="subtitle">演唱會</span></h2>
+
 <div class="work-row">
 <img src="images/concert1.jpg">
 <img src="images/concert2.jpg" loading="lazy">
@@ -312,11 +265,10 @@ exploring expanded ways for space and narrative to unfold.
 </div>
 
 <div class="swipe-hint"><span>SWIPE</span></div>
-  
-<h2>
-  MUSIC  FESTIVAL<br>
-<span class="subtitle">音樂節</span>
-</h2>
+
+
+<h2>MUSIC FESTIVAL<br><span class="subtitle">音樂節</span></h2>
+
 <div class="work-row">
 <img src="images/festival1.jpg">
 <img src="images/festival2.jpg" loading="lazy">
@@ -327,15 +279,14 @@ exploring expanded ways for space and narrative to unfold.
 <img src="images/festival7.jpg" loading="lazy">
 <img src="images/festival8.jpg" loading="lazy">
 <img src="images/festival9.jpg" loading="lazy">
-<img src="images/festival10.jpg" loading="lazy"> 
+<img src="images/festival10.jpg" loading="lazy">
 </div>
 
 <div class="swipe-hint"><span>SWIPE</span></div>
-  
-<h2>
-  LIVEHOUSE  VENUE<br>
-<span class="subtitle">多種演出場館</span>
-</h2>
+
+
+<h2>LIVEHOUSE VENUE<br><span class="subtitle">多種演出場館</span></h2>
+
 <div class="work-row">
 <img src="images/livehouse1.jpg">
 <img src="images/livehouse2.jpg" loading="lazy">
@@ -350,11 +301,10 @@ exploring expanded ways for space and narrative to unfold.
 </div>
 
 <div class="swipe-hint"><span>SWIPE</span></div>
-  
-<h2> 
-  B T S <br>
-<span class="subtitle">幕後的我們</span>
-</h2>
+
+
+<h2>BTS<br><span class="subtitle">幕後的我們</span></h2>
+
 <div class="work-row">
 <img src="images/team1.jpg">
 <img src="images/team2.jpg" loading="lazy">
@@ -373,16 +323,14 @@ exploring expanded ways for space and narrative to unfold.
 </section>
 
 
-<!-- about -->
-
-
 <section class="about">
 
 <p>六群比丘成員來自燈光設計、調音、新媒體視覺等領域</p>
 <p>期待與你們探索音樂現場更多的表達方式</p>
-<p>The members of us come from backgrounds in lighting design, sound engineering, and new media visual arts.</p>
-<p>Together, we explore new possibilities for expression in live music experiences.</p>
-  
+
+<p>The members come from lighting design, sound engineering and new media visual arts.</p>
+<p>Together we explore new possibilities for expression in live music experiences.</p>
+
 <div class="contact">
 聯繫我們<br>
 unity52@foxmail.com<br>
@@ -393,34 +341,31 @@ unity52@foxmail.com<br>
 
 
 <footer>
-
 © 六群比丘
-
 </footer>
 
+
 <script>
-window.addEventListener("load", function(){
 
-  const rows = document.querySelectorAll(".work-row");
+window.addEventListener("load",function(){
 
-  rows.forEach(function(row){
-    row.scrollLeft = 0;
-  });
+document.querySelectorAll(".work-row").forEach(function(row){
+row.scrollLeft=0;
+});
 
 });
 
-/* 微信浏览器关闭 scroll-snap */
-if (/MicroMessenger/i.test(navigator.userAgent)) {
+/* 微信浏览器关闭 snap */
 
-  document.querySelectorAll(".work-row").forEach(function(row){
-    row.style.scrollSnapType = "none";
-  });
+if(/MicroMessenger/i.test(navigator.userAgent)){
+
+document.querySelectorAll(".work-row").forEach(function(row){
+row.style.scrollSnapType="none";
+});
 
 }
-</script>
 
+</script>
 
 </body>
 </html>
-
-
