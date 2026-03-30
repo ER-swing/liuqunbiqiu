@@ -344,24 +344,34 @@ unity52@foxmail.com<br>
 © 六群比丘
 </footer>
 
-
 <script>
 
+function resetGallery(){
+
+  const rows = document.querySelectorAll(".work-row");
+
+  rows.forEach(function(row){
+    row.scrollLeft = 0;
+  });
+
+}
+
+/* 页面加载 */
 window.addEventListener("load",function(){
 
-document.querySelectorAll(".work-row").forEach(function(row){
-row.scrollLeft=0;
-});
+  resetGallery();
+
+  setTimeout(resetGallery,300);
+  setTimeout(resetGallery,800);
 
 });
 
 /* 微信浏览器关闭 snap */
-
 if(/MicroMessenger/i.test(navigator.userAgent)){
 
-document.querySelectorAll(".work-row").forEach(function(row){
-row.style.scrollSnapType="none";
-});
+  document.querySelectorAll(".work-row").forEach(function(row){
+    row.style.scrollSnapType="none";
+  });
 
 }
 
