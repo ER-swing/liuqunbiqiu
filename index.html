@@ -111,10 +111,10 @@ letter-spacing:2px;
 display:flex;
 overflow-x:auto;
 gap:40px;
-scroll-snap-type:x mandatory;
+scroll-snap-type:x proximity;
 scroll-behavior:smooth;
 -webkit-overflow-scrolling:touch;
-justify-content:center;
+will-change:scroll-position;
 }
   
 .work-row::-webkit-scrollbar{
@@ -128,6 +128,10 @@ aspect-ratio:16/9;
 object-fit:cover;
 flex-shrink:0;
 scroll-snap-align:start;
+}
+
+.scroll-start{
+min-width:1px;
 }
 
 /* swipe 提示 */
@@ -252,6 +256,9 @@ exploring expanded ways for space and narrative to unfold.
 <h2>CONCERTS<br><span class="subtitle">演唱會</span></h2>
 
 <div class="work-row">
+
+<div class="scroll-start"></div>
+  
 <img src="images/concert1.jpg">
 <img src="images/concert2.jpg" loading="lazy">
 <img src="images/concert3.jpg" loading="lazy">
@@ -270,6 +277,9 @@ exploring expanded ways for space and narrative to unfold.
 <h2>MUSIC FESTIVAL<br><span class="subtitle">音樂節</span></h2>
 
 <div class="work-row">
+  
+<div class="scroll-start"></div>
+  
 <img src="images/festival1.jpg">
 <img src="images/festival2.jpg" loading="lazy">
 <img src="images/festival3.jpg" loading="lazy">
@@ -288,6 +298,9 @@ exploring expanded ways for space and narrative to unfold.
 <h2>LIVEHOUSE VENUE<br><span class="subtitle">多種演出場館</span></h2>
 
 <div class="work-row">
+
+<div class="scroll-start"></div>
+  
 <img src="images/livehouse1.jpg">
 <img src="images/livehouse2.jpg" loading="lazy">
 <img src="images/livehouse3.jpg" loading="lazy">
@@ -306,6 +319,9 @@ exploring expanded ways for space and narrative to unfold.
 <h2>BTS<br><span class="subtitle">幕後的我們</span></h2>
 
 <div class="work-row">
+
+<div class="scroll-start"></div>
+  
 <img src="images/team1.jpg">
 <img src="images/team2.jpg" loading="lazy">
 <img src="images/team3.jpg" loading="lazy">
@@ -348,30 +364,32 @@ unity52@foxmail.com<br>
 
 function resetGallery(){
 
-  const rows = document.querySelectorAll(".work-row");
+document.querySelectorAll(".work-row").forEach(function(row){
 
-  rows.forEach(function(row){
-    row.scrollLeft = 0;
-  });
-
-}
-
-/* 页面加载 */
-window.addEventListener("load",function(){
-
-  resetGallery();
-
-  setTimeout(resetGallery,300);
-  setTimeout(resetGallery,800);
+row.scrollTo({
+left:0,
+behavior:"instant"
+});
 
 });
 
-/* 微信浏览器关闭 snap */
+}
+
+window.addEventListener("load",function(){
+
+resetGallery();
+
+setTimeout(resetGallery,300);
+setTimeout(resetGallery,800);
+setTimeout(resetGallery,1500);
+
+});
+
 if(/MicroMessenger/i.test(navigator.userAgent)){
 
-  document.querySelectorAll(".work-row").forEach(function(row){
-    row.style.scrollSnapType="none";
-  });
+document.querySelectorAll(".work-row").forEach(function(row){
+row.style.scrollSnapType="none";
+});
 
 }
 
