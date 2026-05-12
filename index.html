@@ -461,11 +461,12 @@ behavior:"smooth"
 
 right.addEventListener("click",function(){
 
+const img = row.querySelector("img");
+
 row.scrollBy({
-left:window.innerWidth * 0.9,
+left:img.clientWidth + 24,
 behavior:"smooth"
 });
-
 });
 
 });
