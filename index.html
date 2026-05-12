@@ -105,7 +105,7 @@ margin-top:6px;
 letter-spacing:2px;
 }
 
-/* 图片滑动 */
+/* gallery */
 
 .gallery-wrap{
 position:relative;
@@ -113,50 +113,62 @@ width:100vw;
 overflow:hidden;
 }
 
+/* 滑动区域 */
+
 .work-row{
 display:flex;
 overflow-x:auto;
 overflow-y:hidden;
-gap:0;
 scroll-behavior:smooth;
 -webkit-overflow-scrolling:touch;
 scrollbar-width:none;
 cursor:grab;
 touch-action:pan-x;
+
+/* 核心：吸附系统 */
+scroll-snap-type:x mandatory;
 }
-  
+
 .work-row:active{
 cursor:grabbing;
 }
-  
+
 .work-row::-webkit-scrollbar{
 display:none;
 }
 
+/* 图片 */
+
 .work-row img{
 width:calc(100vw - 8px);
-height:auto;
 flex-shrink:0;
 display:block;
 object-fit:contain;
+
+/* 吸附点 */
+scroll-snap-align:start;
 }
 
-/* gallery 箭头 */
+/* 箭头 */
 
 .gallery-arrow{
-white-space:nowrap;
 width:100%;
 display:flex;
 align-items:center;
 justify-content:center;
+
 font-size:28px;
 letter-spacing:12px;
 color:white;
 opacity:0.28;
+
 cursor:pointer;
 user-select:none;
 padding:18px 0;
+
 transition:opacity 0.3s ease;
+
+white-space:nowrap;
 }
 
 .gallery-arrow:hover{
@@ -186,13 +198,9 @@ padding:80px;
 opacity:0.5;
 }
 
-/* 手机优化 */
+/* 手机 */
 
 @media(max-width:800px){
-
-.gallery-wrap{
-gap:8px;
-}
 
 .logo{
 width:380px;
@@ -213,29 +221,16 @@ padding:80px 10%;
 }
 
 .gallery-arrow{
-width:100%;
-height:auto;
 font-size:24px;
 padding:14px 0;
 opacity:0.35;
-white-space:nowrap;
-display:flex;
-justify-content:center;
-align-items:center;
-text-align:center;
-line-height:1;
-font-variant-numeric:tabular-nums;
 }
 
-.gallery-wrap{
-padding:0;
-}
 }
 
 </style>
 
 </head>
-
 
 <body>
 
@@ -246,15 +241,12 @@ padding:0;
 
 
 <section class="philosophy">
-
 <div class="philosophy-cn">無限分蘗 · 電光火石</div>
 <div class="philosophy-en">LIMITLESS TILLERING ENLIGHTENMENT</div>
-
 </section>
 
 
 <section class="concept">
-
 <div class="concept-cn">
 通過燈光 聲音 新媒體 裝置等方式建構現場美學<br>
 探索更多空間與敘事的呈現方式
@@ -265,7 +257,6 @@ Through lighting, sound, new media, and spatial installations,<br>
 we construct the aesthetics of the live experience,<br>
 exploring expanded ways for space and narrative to unfold.
 </div>
-
 </section>
 
 
@@ -278,18 +269,16 @@ exploring expanded ways for space and narrative to unfold.
 <div class="gallery-arrow left">◁ ◁ ◁</div>
 
 <div class="work-row">
-  
 <img src="images/concert1.jpg">
-<img src="images/concert2.jpg" loading="lazy">
-<img src="images/concert3.jpg" loading="lazy">
-<img src="images/concert4.jpg" loading="lazy">
-<img src="images/concert5.jpg" loading="lazy">
-<img src="images/concert6.jpg" loading="lazy">
-<img src="images/concert7.jpg" loading="lazy">
-<img src="images/concert8.jpg" loading="lazy">
-<img src="images/concert9.jpg" loading="lazy">
-<img src="images/concert10.jpg" loading="lazy">
-
+<img src="images/concert2.jpg">
+<img src="images/concert3.jpg">
+<img src="images/concert4.jpg">
+<img src="images/concert5.jpg">
+<img src="images/concert6.jpg">
+<img src="images/concert7.jpg">
+<img src="images/concert8.jpg">
+<img src="images/concert9.jpg">
+<img src="images/concert10.jpg">
 </div>
 
 <div class="gallery-arrow right">▷ ▷ ▷</div>
@@ -300,78 +289,66 @@ exploring expanded ways for space and narrative to unfold.
 <h2>MUSIC FESTIVAL<br><span class="subtitle">音樂節</span></h2>
 
 <div class="gallery-wrap">
-
 <div class="gallery-arrow left">◁ ◁ ◁</div>
 
 <div class="work-row">
-  
 <img src="images/festival1.jpg">
-<img src="images/festival2.jpg" loading="lazy">
-<img src="images/festival3.jpg" loading="lazy">
-<img src="images/festival4.jpg" loading="lazy">
-<img src="images/festival5.jpg" loading="lazy">
-<img src="images/festival6.jpg" loading="lazy">
-<img src="images/festival7.jpg" loading="lazy">
-<img src="images/festival8.jpg" loading="lazy">
-<img src="images/festival9.jpg" loading="lazy">
-<img src="images/festival10.jpg" loading="lazy">
-
+<img src="images/festival2.jpg">
+<img src="images/festival3.jpg">
+<img src="images/festival4.jpg">
+<img src="images/festival5.jpg">
+<img src="images/festival6.jpg">
+<img src="images/festival7.jpg">
+<img src="images/festival8.jpg">
+<img src="images/festival9.jpg">
+<img src="images/festival10.jpg">
 </div>
 
 <div class="gallery-arrow right">▷ ▷ ▷</div>
-
 </div>
 
 
 <h2>LIVEHOUSE VENUE<br><span class="subtitle">多種演出場館</span></h2>
 
 <div class="gallery-wrap">
-
 <div class="gallery-arrow left">◁ ◁ ◁</div>
 
 <div class="work-row">
-  
 <img src="images/livehouse1.jpg">
-<img src="images/livehouse2.jpg" loading="lazy">
-<img src="images/livehouse3.jpg" loading="lazy">
-<img src="images/livehouse4.jpg" loading="lazy">
-<img src="images/livehouse5.jpg" loading="lazy">
-<img src="images/livehouse6.jpg" loading="lazy">
-<img src="images/livehouse7.jpg" loading="lazy">
-<img src="images/livehouse8.jpg" loading="lazy">
-<img src="images/livehouse9.jpg" loading="lazy">
-<img src="images/livehouse10.jpg" loading="lazy">
-
+<img src="images/livehouse2.jpg">
+<img src="images/livehouse3.jpg">
+<img src="images/livehouse4.jpg">
+<img src="images/livehouse5.jpg">
+<img src="images/livehouse6.jpg">
+<img src="images/livehouse7.jpg">
+<img src="images/livehouse8.jpg">
+<img src="images/livehouse9.jpg">
+<img src="images/livehouse10.jpg">
 </div>
 
 <div class="gallery-arrow right">▷ ▷ ▷</div>
-
 </div>
 
 
 <h2>BTS<br><span class="subtitle">幕後的我們</span></h2>
 
 <div class="gallery-wrap">
-
 <div class="gallery-arrow left">◁ ◁ ◁</div>
 
 <div class="work-row">
-  
 <img src="images/team1.jpg">
-<img src="images/team2.jpg" loading="lazy">
-<img src="images/team3.jpg" loading="lazy">
-<img src="images/team4.jpg" loading="lazy">
-<img src="images/team5.jpg" loading="lazy">
-<img src="images/team6.jpg" loading="lazy">
-<img src="images/team7.jpg" loading="lazy">
-<img src="images/team8.jpg" loading="lazy">
-<img src="images/team9.jpg" loading="lazy">
-<img src="images/team10.jpg" loading="lazy">
-
+<img src="images/team2.jpg">
+<img src="images/team3.jpg">
+<img src="images/team4.jpg">
+<img src="images/team5.jpg">
+<img src="images/team6.jpg">
+<img src="images/team7.jpg">
+<img src="images/team8.jpg">
+<img src="images/team9.jpg">
+<img src="images/team10.jpg">
 </div>
 
 <div class="gallery-arrow right">▷ ▷ ▷</div>
-
 </div>
 
 </section>
@@ -405,41 +382,41 @@ Tel:13161012055
 © 六群佰库
 </footer>
 
+
 <script>
 
-/* gallery arrows */
+/* ===== gallery control (统一 index 系统) ===== */
 
 document.querySelectorAll(".gallery-wrap").forEach(function(gallery){
 
 const row = gallery.querySelector(".work-row");
-
 const left = gallery.querySelector(".gallery-arrow.left");
-
 const right = gallery.querySelector(".gallery-arrow.right");
 
+function getIndex(){
+return Math.round(row.scrollLeft / row.clientWidth);
+}
+
 left.addEventListener("click",function(){
-
-const img = row.querySelector("img");
-
-row.scrollBy({
-left: row.clientWidth * 0.85,
+const index = getIndex();
+row.scrollTo({
+left: (index - 1) * row.clientWidth,
 behavior: "smooth"
 });
-
 });
 
 right.addEventListener("click",function(){
-
-const img = row.querySelector("img");
-
-row.scrollBy({
-left:(img.clientWidth + 40),
-behavior:"smooth"
-});
-
+const index = getIndex();
+row.scrollTo({
+left: (index + 1) * row.clientWidth,
+behavior: "smooth"
 });
 });
 
+});
+
+
+/* 微信优化 */
 if(/MicroMessenger/i.test(navigator.userAgent)){
 
 document.querySelectorAll(".work-row").forEach(function(row){
@@ -452,4 +429,5 @@ row.style.scrollSnapType="none";
 
 </body>
 </html>
-....
+
+.............
