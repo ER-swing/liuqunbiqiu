@@ -149,9 +149,6 @@ flex-shrink:0;
 scroll-snap-align:start;
 }
 
-.scroll-start{
-min-width:1px;
-}
 
 /* gallery 箭头 */
 
@@ -452,8 +449,10 @@ const right = gallery.querySelector(".gallery-arrow.right");
 
 left.addEventListener("click",function(){
 
+const img = row.querySelector("img");
+
 row.scrollBy({
-left:-window.innerWidth * 0.9,
+left:-(img.clientWidth + 40),
 behavior:"smooth"
 });
 
@@ -464,11 +463,11 @@ right.addEventListener("click",function(){
 const img = row.querySelector("img");
 
 row.scrollBy({
-left:img.clientWidth + 24,
+left:(img.clientWidth + 40),
 behavior:"smooth"
 });
-});
 
+});
 });
 
 if(/MicroMessenger/i.test(navigator.userAgent)){
