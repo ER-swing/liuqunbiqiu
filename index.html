@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh">
 
@@ -107,6 +108,15 @@ letter-spacing:2px;
 
 /* 图片滑动 */
 
+.gallery-wrap{
+position:relative;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:24px;
+padding:0 40px;
+}
+
 .work-row{
 display:flex;
 overflow-x:auto;
@@ -115,6 +125,11 @@ scroll-snap-type:x proximity;
 scroll-behavior:smooth;
 -webkit-overflow-scrolling:touch;
 will-change:scroll-position;
+cursor:grab;
+}
+
+.work-row:active{
+cursor:grabbing;
 }
   
 .work-row::-webkit-scrollbar{
@@ -122,7 +137,7 @@ display:none;
 }
 
 .work-row img{
-width:90vw;
+width:82vw;
 max-width:1200px;
 aspect-ratio:16/9;
 object-fit:cover;
@@ -134,51 +149,41 @@ scroll-snap-align:start;
 min-width:1px;
 }
 
-/* swipe 提示 */
+/* gallery 箭头 */
 
-.swipe-hint{
-text-align:center;
-font-size:12px;
-letter-spacing:4px;
-opacity:0.55;
-margin:20px 0 40px;
+.gallery-arrow{
+position:relative;
+flex-shrink:0;
+
+width:48px;
+height:48px;
+
 display:flex;
 align-items:center;
 justify-content:center;
-gap:12px;
+
+font-size:24px;
+font-weight:200;
+
+color:white;
+opacity:0.18;
+
+cursor:pointer;
+user-select:none;
+
+transition:0.3s ease;
 }
 
-.swipe-hint::before,
-.swipe-hint::after{
-content:"";
-width:40px;
-height:1px;
-background:white;
-opacity:0.3;
+.gallery-arrow:hover{
+opacity:0.7;
 }
 
-.swipe-hint span{
-animation:swipefade 2s infinite;
-display:inline-block;
+.gallery-arrow.left{
+margin-right:4px;
 }
 
-@keyframes swipeMove{
-
-0%{
-transform:translateX(0px);
-opacity:0.3;
-}
-
-50%{
-transform:translateX(10px);
-opacity:0.8;
-}
-
-100%{
-transform:translateX(0px);
-opacity:0.3;
-}
-  
+.gallery-arrow.right{
+margin-left:4px;
 }
 
 /* about */
@@ -208,6 +213,11 @@ opacity:0.5;
 
 @media(max-width:800px){
 
+.gallery-wrap{
+padding:0 12px;
+gap:8px;
+}
+
 .logo{
 width:380px;
 }
@@ -224,6 +234,10 @@ letter-spacing:4px;
 
 .about{
 padding:80px 10%;
+}
+
+.gallery-arrow{
+display:none;
 }
 
 }
@@ -269,6 +283,10 @@ exploring expanded ways for space and narrative to unfold.
 
 <h2>CONCERTS<br><span class="subtitle">演唱會</span></h2>
 
+<div class="gallery-wrap">
+
+<div class="gallery-arrow left">‹</div>
+
 <div class="work-row">
 
 <div class="scroll-start"></div>
@@ -283,12 +301,19 @@ exploring expanded ways for space and narrative to unfold.
 <img src="images/concert8.jpg" loading="lazy">
 <img src="images/concert9.jpg" loading="lazy">
 <img src="images/concert10.jpg" loading="lazy">
+
 </div>
 
-<div class="swipe-hint"><span>← DRAG / SWIPE →</span></div>
+<div class="gallery-arrow right">›</div>
+
+</div>
 
 
 <h2>MUSIC FESTIVAL<br><span class="subtitle">音樂節</span></h2>
+
+<div class="gallery-wrap">
+
+<div class="gallery-arrow left">‹</div>
 
 <div class="work-row">
   
@@ -304,12 +329,19 @@ exploring expanded ways for space and narrative to unfold.
 <img src="images/festival8.jpg" loading="lazy">
 <img src="images/festival9.jpg" loading="lazy">
 <img src="images/festival10.jpg" loading="lazy">
+
 </div>
 
-<div class="swipe-hint"><span>向左滑動 SWIPE</span></div>
+<div class="gallery-arrow right">›</div>
+
+</div>
 
 
 <h2>LIVEHOUSE VENUE<br><span class="subtitle">多種演出場館</span></h2>
+
+<div class="gallery-wrap">
+
+<div class="gallery-arrow left">‹</div>
 
 <div class="work-row">
 
@@ -325,12 +357,19 @@ exploring expanded ways for space and narrative to unfold.
 <img src="images/livehouse8.jpg" loading="lazy">
 <img src="images/livehouse9.jpg" loading="lazy">
 <img src="images/livehouse10.jpg" loading="lazy">
+
 </div>
 
-<div class="swipe-hint"><span>向左滑動 SWIPE</span></div>
+<div class="gallery-arrow right">›</div>
+
+</div>
 
 
 <h2>BTS<br><span class="subtitle">幕後的我們</span></h2>
+
+<div class="gallery-wrap">
+
+<div class="gallery-arrow left">‹</div>
 
 <div class="work-row">
 
@@ -346,9 +385,12 @@ exploring expanded ways for space and narrative to unfold.
 <img src="images/team8.jpg" loading="lazy">
 <img src="images/team9.jpg" loading="lazy">
 <img src="images/team10.jpg" loading="lazy">
+
 </div>
 
-<div class="swipe-hint"><span>向左滑動 SWIPE</span></div>
+<div class="gallery-arrow right">›</div>
+
+</div>
 
 </section>
 
@@ -357,8 +399,16 @@ exploring expanded ways for space and narrative to unfold.
 
 <p>六群比丘成員來自燈光設計、調音、新媒體視覺等領域</p>
 <p>期待與更多伙伴一起探索音樂現場</p>
-<p>Members of us come from backgrounds in lighting design, sound engineering, and new media visual arts.</p>
-<p>We look forward to exploring new possibilities in live music with more collaborators.</p>
+
+<p>
+Members of us come from backgrounds in lighting design,
+sound engineering, and new media visual arts.
+</p>
+
+<p>
+We look forward to exploring new possibilities
+in live music with more collaborators.
+</p>
 
 <div class="contact">
 聯繫我們<br>
@@ -375,42 +425,33 @@ Tel:13161012055
 
 <script>
 
-function resetGallery(){
+/* gallery arrows */
 
-document.querySelectorAll(".work-row").forEach(function(row){
+document.querySelectorAll(".gallery-wrap").forEach(function(gallery){
 
-row.scrollTo({
-left:0,
-behavior:"instant"
-});
+const row = gallery.querySelector(".work-row");
 
-});
+const left = gallery.querySelector(".gallery-arrow.left");
 
-}
+const right = gallery.querySelector(".gallery-arrow.right");
 
-window.addEventListener("load",function(){
+left.addEventListener("click",function(){
 
-resetGallery();
-
-document.querySelectorAll(".work-row").forEach(function(row,index){
-
-setTimeout(function(){
-
-row.scrollTo({
-left:120,
+row.scrollBy({
+left:-window.innerWidth * 0.9,
 behavior:"smooth"
 });
 
-setTimeout(function(){
+});
 
-row.scrollTo({
-left:0,
+right.addEventListener("click",function(){
+
+row.scrollBy({
+left:window.innerWidth * 0.9,
 behavior:"smooth"
 });
 
-},1200);
-
-},800 + index * 300);
+});
 
 });
 
@@ -426,3 +467,4 @@ row.style.scrollSnapType="none";
 
 </body>
 </html>
+```
