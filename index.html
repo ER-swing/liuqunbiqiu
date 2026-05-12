@@ -144,7 +144,7 @@ object-fit:contain;
 /* gallery 箭头 */
 
 .gallery-arrow{
-
+white-space:nowrap;
 width:100%;
 display:flex;
 align-items:center;
@@ -213,20 +213,23 @@ padding:80px 10%;
 }
 
 .gallery-arrow{
-
-width:42px;
-height:42px;
-
-font-size:28px;
-
+width:100%;
+height:auto;
+font-size:24px;
+padding:14px 0;
 opacity:0.35;
-
+white-space:nowrap;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+line-height:1;
+font-variant-numeric:tabular-nums;
 }
 
 .gallery-wrap{
-padding:0 4px;
+padding:0;
 }
-
 }
 
 </style>
@@ -419,8 +422,8 @@ left.addEventListener("click",function(){
 const img = row.querySelector("img");
 
 row.scrollBy({
-left:-(img.clientWidth + 40),
-behavior:"smooth"
+left: row.clientWidth * 0.85,
+behavior: "smooth"
 });
 
 });
@@ -449,4 +452,4 @@ row.style.scrollSnapType="none";
 
 </body>
 </html>
-........
+....
