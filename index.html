@@ -140,7 +140,7 @@ min-width:1px;
 text-align:center;
 font-size:12px;
 letter-spacing:4px;
-opacity:0.35;
+opacity:0.55;
 margin:20px 0 40px;
 display:flex;
 align-items:center;
@@ -159,12 +159,26 @@ opacity:0.3;
 
 .swipe-hint span{
 animation:swipefade 2s infinite;
+display:inline-block;
 }
 
-@keyframes swipefade{
-0%{opacity:0.2;}
-50%{opacity:0.7;}
-100%{opacity:0.2;}
+@keyframes swipeMove{
+
+0%{
+transform:translateX(0px);
+opacity:0.3;
+}
+
+50%{
+transform:translateX(10px);
+opacity:0.8;
+}
+
+100%{
+transform:translateX(0px);
+opacity:0.3;
+}
+  
 }
 
 /* about */
@@ -271,7 +285,7 @@ exploring expanded ways for space and narrative to unfold.
 <img src="images/concert10.jpg" loading="lazy">
 </div>
 
-<div class="swipe-hint"><span>向左滑動 SWIPE</span></div>
+<div class="swipe-hint"><span>← DRAG / SWIPE →</span></div>
 
 
 <h2>MUSIC FESTIVAL<br><span class="subtitle">音樂節</span></h2>
@@ -378,9 +392,25 @@ window.addEventListener("load",function(){
 
 resetGallery();
 
-setTimeout(resetGallery,300);
-setTimeout(resetGallery,800);
-setTimeout(resetGallery,1500);
+document.querySelectorAll(".work-row").forEach(function(row,index){
+
+setTimeout(function(){
+
+row.scrollTo({
+left:120,
+behavior:"smooth"
+});
+
+setTimeout(function(){
+
+row.scrollTo({
+left:0,
+behavior:"smooth"
+});
+
+},1200);
+
+},800 + index * 300);
 
 });
 
