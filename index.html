@@ -123,12 +123,11 @@ padding:0 40px;
 .work-row{
 display:flex;
 overflow-x:auto;
-gap:40px;
-scroll-snap-type:x mandatory;
-scroll-behavior:smooth;
+gap:24px;
 -webkit-overflow-scrolling:touch;
-will-change:scroll-position;
 cursor:grab;
+padding:0 calc(50vw - 45vw);
+scrollbar-width:none;
 }
 
 .work-row:active{
@@ -140,12 +139,12 @@ display:none;
 }
 
 .work-row img{
-width:100%;
-max-width:1320px;
+width:90vw;
+max-width:1400px;
 height:auto;
-object-fit:contain;
 flex-shrink:0;
-scroll-snap-align:start;
+object-fit:contain;
+display:block;
 }
 
 
