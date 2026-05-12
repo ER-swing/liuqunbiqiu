@@ -113,7 +113,7 @@ width:100vw;
 overflow:hidden;
 }
 
-/* 滑动区域 */
+/* 滑动容器 */
 
 .work-row{
 display:flex;
@@ -124,9 +124,6 @@ scroll-behavior:smooth;
 scrollbar-width:none;
 cursor:grab;
 touch-action:pan-x;
-
-/* 核心：吸附系统 */
-scroll-snap-type:x mandatory;
 }
 
 .work-row:active{
@@ -137,16 +134,13 @@ cursor:grabbing;
 display:none;
 }
 
-/* 图片 */
+/* 图片：统一一屏宽度 */
 
 .work-row img{
-width:calc(100vw - 8px);
+width:100vw;
 flex-shrink:0;
 display:block;
 object-fit:contain;
-
-/* 吸附点 */
-scroll-snap-align:start;
 }
 
 /* 箭头 */
@@ -265,7 +259,6 @@ exploring expanded ways for space and narrative to unfold.
 <h2>CONCERTS<br><span class="subtitle">演唱會</span></h2>
 
 <div class="gallery-wrap">
-
 <div class="gallery-arrow left">◁ ◁ ◁</div>
 
 <div class="work-row">
@@ -282,7 +275,6 @@ exploring expanded ways for space and narrative to unfold.
 </div>
 
 <div class="gallery-arrow right">▷ ▷ ▷</div>
-
 </div>
 
 
@@ -385,7 +377,7 @@ Tel:13161012055
 
 <script>
 
-/* ===== gallery control (统一 index 系统) ===== */
+/* ===== 精确一屏切换（完全稳定版） ===== */
 
 document.querySelectorAll(".gallery-wrap").forEach(function(gallery){
 
@@ -393,41 +385,36 @@ const row = gallery.querySelector(".work-row");
 const left = gallery.querySelector(".gallery-arrow.left");
 const right = gallery.querySelector(".gallery-arrow.right");
 
+function getStep(){
+return row.getBoundingClientRect().width;
+}
+
 function getIndex(){
-return Math.round(row.scrollLeft / row.clientWidth);
+return Math.round(row.scrollLeft / getStep());
 }
 
 left.addEventListener("click",function(){
+const step = getStep();
 const index = getIndex();
 row.scrollTo({
-left: (index - 1) * row.clientWidth,
+left: (index - 1) * step,
 behavior: "smooth"
 });
 });
 
 right.addEventListener("click",function(){
+const step = getStep();
 const index = getIndex();
 row.scrollTo({
-left: (index + 1) * row.clientWidth,
+left: (index + 1) * step,
 behavior: "smooth"
 });
 });
 
 });
 
-
-/* 微信优化 */
-if(/MicroMessenger/i.test(navigator.userAgent)){
-
-document.querySelectorAll(".work-row").forEach(function(row){
-row.style.scrollSnapType="none";
-});
-
-}
-
 </script>
 
 </body>
 </html>
-
-.............
+111
